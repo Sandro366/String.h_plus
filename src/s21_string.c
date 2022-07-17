@@ -49,18 +49,6 @@ char *s21_strncpy(char *dest, const char *src, s21_size_t n) {
   return dest;
 }
 
-/* char *s21_strcat(char *dest, const char *src) {
-  s21_size_t j = 0;  // перемещение указателя
-  s21_size_t i = 0;  // перемещение указателя
-  for (; *(dest + i); i++) {
-  }
-  for (; *(src + j); j++) {
-    *(dest + i + j) = *(src + j);
-  }
-  *(dest + i + j + 1) = '\0';
-  return dest;
-}
- */
 char *s21_strcat(char *dest, const char *src) {
   if (dest == s21_NULL) return s21_NULL;
   s21_size_t i;
@@ -316,38 +304,6 @@ void *s21_to_lower(const char *str) {
   }
   return result;
 }
-
-/*
-void *s21_insert(const char *src, const char *str, s21_size_t start_index) {
-  int flag_err = 1;
-  char *result;
-  if (start_index > s21_strlen(src)) {  // проверка индекса на валидность
-    flag_err = 0;
-    result = s21_NULL;
-  }
-  if (flag_err) {
-    int length = s21_strlen(str) + s21_strlen(src);
-    result = calloc(length + 1, sizeof(char));
-    if (result != s21_NULL) {
-      size_t count = 0;  // счётчик позиций новой строки
-      while (count < start_index) {
-        *(result + count) = *src++;
-        count++;
-      }
-      while (*str) {
-        *(result + count) = *str++;
-        count++;
-      }
-      while (*src != '\0') {
-        *(result + count) = *src++;
-        count++;
-      }
-      *(result + length) = '\0';
-    }
-  }
-  return result;
-}
- */
 
 void *s21_insert(const char *src, const char *str, s21_size_t start_index) {
   if (start_index > s21_strlen(src)) return s21_NULL;
